@@ -57,7 +57,7 @@ Prompts the user for tree-structured input, parses it, and calls `create_structu
 ## Running the Script
 
 ```bash
-python directory_creator.py
+python Final.py
 ```
 
 ### Sample Output
