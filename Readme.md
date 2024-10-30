@@ -69,6 +69,7 @@ Created directory: project/src/
 Created file: project/src/main.py
 Created directory: project/src/utils/
 Created file: project/src/utils/helper.py
+File already exists, skipping: Readme.md
 ...
 ```
 

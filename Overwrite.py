@@ -35,14 +35,10 @@ def create_structure(base_dir, structure, initial_content=""):
     for name, sub_structure in structure.items():
         path = os.path.join(base_dir, name)
         if sub_structure is None:
-            # Check if the file already exists
-            if os.path.exists(path):
-                print(f"File already exists, skipping: {path}")
-            else:
-                # Create file with optional initial content
-                with open(path, 'w') as f:
-                    f.write(initial_content)
-                print(f"Created file: {path}")
+            # Create file with optional initial content
+            with open(path, 'w') as f:
+                f.write(initial_content)
+            print(f"Created file: {path}")
         else:
             # Create directory and recurse to create any nested items
             os.makedirs(path, exist_ok=True)
@@ -68,7 +64,7 @@ def main():
     print("Parsed structure:", structure)
     
     # Create the directory and file structure in the current directory
-    create_structure(base_directory, structure, initial_content="Made by Krish")
+    create_structure(base_directory, structure, initial_content="Initial file content here")
 
 if __name__ == "__main__":
     main()
