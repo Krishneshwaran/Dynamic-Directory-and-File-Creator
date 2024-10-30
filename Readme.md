@@ -1,56 +1,82 @@
-# 📂 Custom File Extension Project - `.myext`
 
-Welcome to your custom file extension project! This README will guide you through the steps to create, implement, and test a custom `.myext` extension that can generate folders and files automatically. Let’s get started! 🎉
+# Dynamic Directory and File Creator
 
----
+This project is a Python script that dynamically creates directory and file structures based on a tree-like input format. Users can define a nested directory and file structure using a text-based format, which the script then parses and creates in the current working directory.
 
-## 🚀 Project Overview
+## Features
 
-This project allows you to:
-1. Define a folder and file structure in a `.myext` file.
-2. Automatically create nested folders and files by simply opening the `.myext` file in a specified directory.
+- **Tree Structure Parsing**: Parses text input that represents a file and directory structure.
+- **Automatic Directory Creation**: Creates nested directories and files as specified in the input.
+- **Initial Content for Files**: Optional initial content can be added to files upon creation.
+- **Direct Execution**: After entering the directory structure and typing `done`, the script immediately builds the structure in the current directory.
 
----
+## Usage
 
-### 📋 Requirements
-- 🐍 **Python** (for running the setup script)
-- 🖥️ **Windows** (to associate the file extension with Python)
+1. **Run the Script**: Execute the script in a Python environment.
+2. **Input Tree Structure**: Enter the directory and file structure in a tree format.
+   - Use `├──` for files and folders within a directory.
+   - Use `│` to indicate continuation lines for readability.
+   - Type `done` on a new line to finish input.
+3. **Verify Creation**: Check the current directory to see the newly created folder and file structure.
 
----
+### Example Input
 
-## 🛠️ Steps to Implement
+```plaintext
+project/
+├── src/
+│   ├── main.py
+│   ├── utils/
+│   │   ├── helper.py
+│   │   └── config.py
+├── tests/
+│   ├── test_main.py
+│   └── utils/
+│       └── test_helper.py
+└── README.md
+```
 
-### 1. **Create Your .myext File** 📄
+### Expected Output
 
-1. Open your favorite text editor (like VS Code or Notepad).
-2. Create a JSON file structure to define folders and files. Save it with a `.myext` extension.
-3. 🎉 **Save** it as `example.myext`.
+In the current working directory, a `project` folder will be created with the nested structure shown in the input.
 
----
+## Code Overview
 
-### 2. **Write the Python Script** 🐍
+### `parse_tree_structure(tree_input)`
+Parses the user-provided tree input into a nested dictionary that represents the file structure.
 
-1. Create a new file named `create_structure.py`.
-2. Write the script to read `.myext` files and create folders and files based on their structure.
-3. Save the file! 🖫
+### `create_structure(base_dir, structure, initial_content="")`
+Recursively creates directories and files based on the parsed structure dictionary. Files can include optional initial content.
 
----
+### `main()`
+Prompts the user for tree-structured input, parses it, and calls `create_structure` to build the directory and file structure.
 
-### 3. **Test the Script** 🧪
+## Requirements
 
-1. Open a terminal or command prompt.
-2. Run the script with your `.myext` file.
-3. 🎉 Check the folder to see if the structure was created!
+- Python 3.x
 
----
+## Running the Script
 
-### 4. **Associate .myext Files with Python on Windows** 🔗
+```bash
+python directory_creator.py
+```
 
-1. **Right-click** on any `.myext` file and select **Open with > Choose another app**.
-2. Select your Python interpreter (`python.exe`) and check **Always use this app to open .myext files**.
-3. **Double-click** the `.myext` file to test it! Your script will automatically run and create the folder structure wherever the `.myext` file is saved.
+### Sample Output
 
----
+The script will print each created file and directory path to confirm successful creation:
 
-## 🌟 Enjoy!
-Now you have a fully functional custom file extension!
+```plaintext
+Created directory: project/src/
+Created file: project/src/main.py
+Created directory: project/src/utils/
+Created file: project/src/utils/helper.py
+...
+```
+
+## Notes
+
+- The script assumes a 4-space indentation for each nested level.
+- The script executes immediately after typing `done`, with no additional prompts.
+
+## License
+
+This project is licensed under the MIT License.
