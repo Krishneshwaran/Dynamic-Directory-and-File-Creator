@@ -77,6 +77,3 @@ Created file: project/src/utils/helper.py
 - The script assumes a 4-space indentation for each nested level.
 - The script executes immediately after typing `done`, with no additional prompts.
 
-## License
-
-This project is licensed under the MIT License.
