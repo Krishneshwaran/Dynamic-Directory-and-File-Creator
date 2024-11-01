@@ -15,7 +15,7 @@ def parse_tree_structure(tree_input):
         is_directory = stripped_line.endswith("/")
         item_name = stripped_line.rstrip("/")
 
-        # Adjust current path based on indentation level
+        # Adjust current path based on indentation level  
         current_path = current_path[:indent_level + 1]
 
         # Add to the structure based on whether it's a directory or file
