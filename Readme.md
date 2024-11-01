@@ -52,12 +52,19 @@ Prompts the user for tree-structured input, parses it, and calls `create_structu
 
 ## Requirements
 
-- Python 3.x
+- Python 
+- Pip install rich
 
 ## Running the Script
 
 ```bash
 python Final.py
+```
+
+## Running with an adaptive interface.
+
+```bash
+python Enhance.py
 ```
 
 ### Sample Output
